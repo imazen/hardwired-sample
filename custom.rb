@@ -13,30 +13,30 @@ class Site
   helpers do
     # Add new helpers here.
     def latest_release
-      Hw::ContentFile.articles_by_tag("releases").first
+      Hardwired::Page.articles_by_tag("releases").first
     end
     def releases
-      Hw::ContentFile.articles_by_tag("releases")
+      Hardwired::Page.articles_by_tag("releases")
     end
     
     def bundles
-      Hw::ContentFile.find_all.select { |item| item.flagged_as?('bundle')}
+      Hardwired::Page.find_all.select { |item| item.flagged_as?('bundle')}
     end
   end
   
   
 
 end
-module Hw
+module Hardwired
   
-  class ContentFile
+  class Page
     def template
       fallback = metadata('bundle') ? 'plugin_page' : 'page'
       (metadata('template') || fallback).to_sym
     end
   
     def self.plugins_by_bundle(bundle)
-      Hw::ContentFile.find_all.select { |item| item.bundle_name == bundle and not item.flagged_as?('bundle')}
+      Hardwired::Page.find_all.select { |item| item.bundle_name == bundle and not item.flagged_as?('bundle')}
     end
 
     def bundle_name
@@ -44,16 +44,13 @@ module Hw
     end
        
     def bundle
-      Hw::ContentFile.find_by_path("/plugins/bundles/#{bundle_name}")
+      Hardwired::Page.find_by_path("/plugins/bundles/#{bundle_name}")
     end
     
     def bundle_plugins
-      Hw::ContentFile.plugins_by_bundle(bundle_name)
+      Hardwired::Page.plugins_by_bundle(bundle_name)
     end
   end
 
 end
 
-module Nesta
-  Page = Hw::ContentFile
-end

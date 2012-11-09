@@ -3,8 +3,7 @@
 #
 title: "Nathanael Jones"
 subtitle: "Ramblings of a computer linguist"
-logotext1: Nathanael
-logotext2: Jones
+
 
 # If you want to set the descrition or keywords meta tags on your site's
 # home page, do it here.
@@ -41,20 +40,9 @@ disqus_short_name: ndj7
 footer:
   statement: Copyright &copy; 2012 Nathanael Jones
 
-# cache
-#     Set it to true if you'd like Nesta to cache your pages in ./public.
-#     Useful if you're deploying Nesta with a proxy server such as Nginx,
-#     but not in the least bit helpful if your pages are dynamic, or you're
-#     deploying Nesta to Heroku.
-#
-cache: false
 
 # content
-#     The root directory where nesta will look for your article files.
-#     Should contain "pages" and "attachments" subdirectories that contain
-#     your actual content and the (optional) menu.txt file that links to your
-#     main category pages.
-#
+#     The root directory where Hardwired will look for pages, views, templates, layouts, and static files
 #content: content
 content: content
 
